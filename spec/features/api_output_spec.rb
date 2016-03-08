@@ -4,7 +4,7 @@ describe "api" do
 
   let!(:item) {Item.create(name: "item_name",
                           description: "item_description",
-                          image_url: "image_url",
+                          image_url: "item_url",
                           created_at: "2016-03-08 04:21:31",
                           updated_at: "2016-03-14 04:21:31")}
 

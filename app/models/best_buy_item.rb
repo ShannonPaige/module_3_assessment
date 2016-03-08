@@ -5,6 +5,7 @@ class BestBuyItem
   end
 
   def self.search_results(keyword)
+    keyword.gsub!(" ", "%20")
     results = service.product_search(keyword)[:products]
     results.map { |result| build_object(result) }
   end

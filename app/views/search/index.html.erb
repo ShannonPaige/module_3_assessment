@@ -1,19 +1,20 @@
 <div class="container">
   <div class="row">
-    <div class="col-sm-12">
+    <div class="col-sm-12" style='padding-bottom: 10px'>
       <h1>Your search returned <%= @items.count %> items</h1>
+      <%= link_to "Search Again", '/' %>
     </div>
   </div>
   <div class="row"></div>
   <% @items.each do |item| %>
     <div class="col-sm-3">
       <h5><%= item.name %></h5>
-      <%= link_to(image_tag(item.image_url), item_path(item)) %>
+      <img src="<%= item.image %>" height="200px">
       <p>
-        <%= item.sku %>
-        <%= item.shortDescription %>
-        <%= item.salePrice %>
-        <%= item.customerReviewAverage %>
+        <%= item.shortDescription %><br />
+        <b>Price:</b> <%= item.salePrice %><br />
+        <b>Average Customer Review:</b> <%= item.customerReviewAverage %><br />
+        <b>SKU:</b> <%= item.sku %>
       </p>
     </div>
   <% end %>

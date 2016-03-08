@@ -28,6 +28,26 @@ RSpec.describe Api::V1::ItemsController, type: :controller do
       assert_equal item.description, object1["description"]
       assert_equal item.image_url, object1["image_url"]
     end
+  end
 
+  describe 'GET #show' do
+    it "returns http success" do
+      get :show, format: :json, id: item.id
+      expect(response).to have_http_status(:success)
+    end
+
+    it "returns multiple items" do
+      get :show, format: :json, id: item.id
+      assert_kind_of Hash, json_response
+    end
+
+    it "returns the correct items" do
+      get :show, format: :json, id: item.id
+      object1 = json_response
+
+      assert_equal item.name, object1["name"]
+      assert_equal item.description, object1["description"]
+      assert_equal item.image_url, object1["image_url"]
+    end
   end
 end

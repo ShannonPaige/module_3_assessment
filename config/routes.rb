@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v1 do
-      resources :items, only: [:index, :show], defaults: {format: :json}
+      resources :items, except: [:new, :update, :edit], defaults: {format: :json}
     end
 
   end

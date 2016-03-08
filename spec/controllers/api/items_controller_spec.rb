@@ -50,4 +50,18 @@ RSpec.describe Api::V1::ItemsController, type: :controller do
       assert_equal item.image_url, object1["image_url"]
     end
   end
+
+  describe 'POST #create' do
+    it "returns http success" do
+      post :create, format: :json, name: "new_item_name", description: "new_item_description", image_url: "new_item_url"
+      expect(response).to have_http_status(:success)
+    end
+  end
+
+  describe 'DELETE #delete' do
+    it "returns http success" do
+      get :destroy, format: :json, id: item.id
+      expect(response).to have_http_status(:success)
+    end
+  end
 end

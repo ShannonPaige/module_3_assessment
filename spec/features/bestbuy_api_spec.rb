@@ -5,13 +5,13 @@ describe "best buy api" do
     it "user can search for items" do
       visit '/'
 
-      expect(page).to have_content "Search Best Buy Api"
-      fill_in "Keyword", with: "sennheiser"
+      expect(page).to have_content "Search Best Buy For Items"
+      fill_in "q", with: "sennheiser"
       click_button "Search"
 
-      expect(current_path).to eq '/search'
+      expect(current_path).to eq search_index_path
       expect(page).to have_content '15 Results'
-      expect(page).to have_content 'Content Goes Here'
+      expect(page).to have_content 'Sennheiser'
     end
 
 end

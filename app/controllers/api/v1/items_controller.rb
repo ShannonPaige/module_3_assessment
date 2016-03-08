@@ -10,7 +10,6 @@ class Api::V1::ItemsController < ApplicationController
   end
 
   def create
-    binding.pry
     respond_with Item.create(item_params)
   end
 
@@ -21,6 +20,6 @@ class Api::V1::ItemsController < ApplicationController
   private
 
     def item_params
-      params.require(:item).permit(:name, :description, :image_url)
+      params.permit(:name, :description, :image_url)
     end
 end

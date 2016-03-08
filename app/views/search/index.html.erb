@@ -10,7 +10,10 @@
       <h5><%= item.name %></h5>
       <%= link_to(image_tag(item.image_url), item_path(item)) %>
       <p>
-        <%= item.description %>
+        <%= item.sku %>
+        <%= item.shortDescription %>
+        <%= item.salePrice %>
+        <%= item.customerReviewAverage %>
       </p>
     </div>
   <% end %>

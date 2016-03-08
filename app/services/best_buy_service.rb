@@ -9,7 +9,7 @@ class BestBuyService
   end
 
   def product_search(keyword)
-    parse(connection.get("products(longDescription=#{keyword}*)?pageSize=15&show=sku,name,salePrice,customerReviewAverage,shortDescription&format=json"))
+    parse(connection.get("products(longDescription=#{keyword}*)?pageSize=15&show=sku,name,salePrice,image,customerReviewAverage,shortDescription&format=json"))
   end
 
   private
